@@ -36,17 +36,13 @@ def nearest_neighbor_algorithm(first_point, list_of_points):
     return list(cycle.keys())
 
 
-def great_algorithm(first_point, list_of_points):
-    
-    t = tsp.tsp(list_of_points)
-    print(t)
-    
-    
-    
-
-
-
-    return list(list_of_points.keys())
+# def great_algorithm(first_point, list_of_points):
+#     
+#     t = tsp.tsp(list_of_points)
+#     print(t)
+# 
+# 
+#     return list(list_of_points.keys())
 
 
 def optimal_algorithm(first_point, list_of_points):
