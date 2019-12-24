@@ -3,10 +3,12 @@ import math  # https://docs.python.org/3/library/math.html
 from itertools import permutations
 
 def calcul_distance(first_point_value, second_point_value):
+    
     return math.sqrt(pow(second_point_value[0] - first_point_value[0], 2) + pow(second_point_value[1] - first_point_value[1], 2))
 
 
 def calcul_circuit(list_of_points, cycle):
+    
     length = 0
     for i in range(len(cycle) - 1):
         length += calcul_distance(list_of_points[cycle[i]], list_of_points[cycle[i + 1]])
@@ -15,6 +17,7 @@ def calcul_circuit(list_of_points, cycle):
 
 
 def nearest_neighbor_algorithm(first_point, list_of_points):
+    
     cycle = {}
     list_of_left_points = list_of_points.copy()
     cycle[first_point] = list_of_left_points[first_point]
@@ -65,6 +68,7 @@ def optimal_algorithm(first_point, list_of_points):
 
 
 def get_small_list_of_points():
+    
     list_of_points = {
         0: (1, 3),
         1: (2, 5),
@@ -81,12 +85,14 @@ def get_small_list_of_points():
 
 
 def test_calcul_distance():
+    
     a = (-3, -2)
     b = (5, 2)
     assert round(calcul_distance(a, b), 3) == 8.944
 
 
 def test_calcul_min_circuit():
+    
     a = (-3, -2)
     b = (5, 2)
     list_of_points = {'a': a, 'b': b}
@@ -96,6 +102,7 @@ def test_calcul_min_circuit():
 
 
 def test_calcul_circuit():
+    
     list_of_points = get_small_list_of_points()
     cycle = list(list_of_points.keys())
     distance = calcul_circuit(list_of_points, cycle)
@@ -104,8 +111,8 @@ def test_calcul_circuit():
 
 
 def test_return_sized():
+    
     list_of_points = get_small_list_of_points()
-
     first_point = 0
     result = nearest_neighbor_algorithm(first_point, list_of_points)
     assert len(result) == 10
@@ -113,6 +120,7 @@ def test_return_sized():
 
 
 def test_small_nearest_neighbor():
+    
     list_of_points = get_small_list_of_points()
     first_point = 0
     result = nearest_neighbor_algorithm(first_point, list_of_points)
@@ -123,11 +131,13 @@ def test_small_nearest_neighbor():
 
 
 def test_big_nearest_neighbor():
+    
     """I will test with a lot of points"""
     pass
 
 
 def test_small_better_algorithm():
+    
     list_of_points = get_small_list_of_points()
 
     first_point = 0
@@ -139,11 +149,13 @@ def test_small_better_algorithm():
 
 
 def test_big_better_algorithm():
+    
     """I will test with a lot of points"""
     pass
 
 
 def test_small_optimal_algorithm():
+    
     list_of_points = get_small_list_of_points()
 
     first_point = 0
@@ -155,6 +167,7 @@ def test_small_optimal_algorithm():
 
 
 def test_big_optimal_algorithm():
+    
     """I will test with a lot of points"""
     pass
 
